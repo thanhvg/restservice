@@ -1,0 +1,107 @@
+<script type="text/javascript">
+	var values; // array of info
+	
+	
+  $(document).ready(function(){
+    $('#userForm').keyup(function() {
+      validateForm();
+    });
+
+    $('#submit').click(function(event){
+      if (validateForm() == 0)
+      submitRegistrationForm(values);
+      else {
+        alert("Please correct. Your form is not complete yet");
+        event.preventDefault();
+      }
+
+    });
+
+    
+  });
+  function validateForm() {
+    // return 0;
+    var flag = 0; //error code if other than 0
+    var nameReg = /^[A-Za-z]+$/;
+    //var numberReg =  /^[0-9]+$/;
+    var usernameReg = /^[a-zA-Z0-9]+$/;    
+    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+    
+    var names = $('#nameInput').val();
+    var company = $('#companyInput').val();
+    var email = $('#emailInput').val();
+    var telephone = $('#telInput').val();
+    var message = $('#messageInput').val();
+    var firstName = $('#inputFirstName').val();
+    var lastName = $('#inputLastName').val();
+    var street = $('#inputStreet').val();
+    var city = $('#inputCity').val();
+    var province = $('#inputProvince').val();
+    var country = $('#inputCountry').val();
+    var postalCode = $('#inputPostalCode').val();
+    var email = $('#inputEmail').val();
+    var password = $('#inputPassword').val();
+    var passwordre = $('#inputPasswordRe').val();
+    var username = $('#inputUsername').val();
+    var homephone = $('#inputHomePhone').val();
+    var busphone = $('#inputBusinessPhone').val();
+
+    $('.error').hide();
+
+    values = new Array(firstName,          lastName,                 street,        city,          province,         country,            postalCode,                      email,         	username,   		password   ,  homephone, 	busphone      );
+    var fieds = new Array ('#inputFirstName', '#inputLastName',  '#inputStreet',      '#inputCity',   '#inputProvince',  '#inputCountry',    '#inputPostalCode',             '#inputEmail',   '#inputUsername',  	'#inputPassword' );
+    var msgs = new Array ('first name',         'last name',      'street address',     'city',       'province',         'country',           'postal code' ,               'email',       	'user name',   		'password'        );
+
+    for (i = 0; i < values.length; i++) {
+      if (values[i] == "") {
+        $(fieds[i]).after('<span class="error"> Please enter your ' + msgs[i] + '</span>');
+        flag = 1;
+      }
+    }
+
+    if(!emailReg.test(email)) {
+      $('#inputEmail').after('<span class="error"> Please enter a valid email address</span>');
+      flag = 2;
+    }
+
+    if(password != passwordre) {
+      $('#inputPasswordRe').after('<span class="error"> Passwords are not the same</span>');
+      flag = 3;
+    }
+    
+    if(!usernameReg.test(username)) {
+       $('#inputUsername').after('<span class="error"> Invalid user name </span>');
+       flag = 4;
+    }
+    
+    return flag;
+  }
+
+ </script>
+  
+<div class='register'>
+<div class='title'> Register Now </div>
+  
+		<div id="userForm" class='agencyPanel'>
+			First name: <input name="firstName" type="text" id="inputFirstName"> <br>
+			Last name: <input name="lastName" type="text" id="inputLastName"><br>
+			Street: <input name="street" type="text" id="inputStreet"> <br>
+			City: <input name="city" type="text" id="inputCity"> <br> 
+			Province: <input name="province" type="text" id="inputProvince"> <br>
+			Country: <select id="inputCountry" name="country">
+				<option value="Canada">Canada</option>
+				<option value="US">United States of America</option>
+				<option value="Vietnam">Viet Nam</option>
+			</select> <br>
+			Postal code: <input name="postalCode" type="text" id="inputPostalCode"> <br>
+			Email: <input name="email" type="text" id="inputEmail"> <br>
+			User name: <input name="username" type="text" id="inputUsername"> <br>
+			Password: <input name="password" type="password" id="inputPassword"> <br>
+			Retype your password: <input name="passwordRe" type="password" id="inputPasswordRe"> <br>
+			Home phone number: <input name="homePhone" type="number" min=1 id="inputHomePhone"> <br>
+			Business phone: <input name="businessPhone" type="number" min=1 id="inputBusinessPhone"> <br>
+			<button id="submit" class='submit'>Register</button>			
+
+		</div>
+	
+</div>

@@ -1,0 +1,52 @@
+@CHARSET "ISO-8859-1";
+/* styles for the travel agents info
+   Author: Kelsey Alexander
+   Date: September 26, 2016
+*/
+.agent {
+	padding: 40px;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-bottom: 40px;
+}
+
+.title {
+	font-size: 36pt;
+	color: #42514e;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+button.accordion {
+    background-color: #dad8c9;
+    color: #42514e;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    text-align: left;
+    font-size: 16pt;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+button.accordion.active, button.accordion:hover {
+    background-color: #6e8266;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+div.panel {
+    padding: 0 18px;
+    background-color: #dad8c9;
+    display: none;
+}
+
+/* The "show" class is added to the accordion panel when the user clicks on one of the buttons. This will show the panel content */
+div.panel.show {
+    display: block;
+    font-size: 14pt;
+    padding: 18px 18px 18px 30px;
+}

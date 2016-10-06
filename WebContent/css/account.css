@@ -1,0 +1,52 @@
+@CHARSET "ISO-8859-1";
+/* styles for the customer account info
+   Author: Kelsey Alexander
+   Date: October 5, 2016
+*/
+.account {
+	padding: 40px;
+	padding-left: 40px;
+	padding-right: 40px;	
+	padding-bottom: 40px;
+	text-align: center;
+	color: #42514e;
+}
+
+.agencyPanel {
+	background-color: #dad8c9;
+	font-size: 14pt;
+    padding: 18px 18px 18px 30px;
+    box-shadow: 10px 10px 10px #1D4E4B;
+    color: #42514e;
+    overflow: hidden;
+}
+
+.left {
+	width: 50%;
+	float: left;
+}
+
+.right {
+	width: 50%;
+	float: right;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.submit {
+    background-color: #6e8266;
+    color: #dad8c9;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}

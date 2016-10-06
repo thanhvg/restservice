@@ -1,0 +1,35 @@
+@CHARSET "ISO-8859-1";
+
+.register {
+	padding: 40px;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-bottom: 40px;
+	color: #42514e;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password], input[type=number], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+.submit {
+    background-color: #6e8266;
+    color: #dad8c9;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.error {
+	font-size: 10pt;
+	color: red;
+}

@@ -1,0 +1,21 @@
+@CHARSET "ISO-8859-1";
+/* styles for the travel agency info
+   Author: Kelsey Alexander
+   Date: September 26, 2016
+*/
+.agency {
+	padding: 40px;
+	padding-left: 40px;
+	padding-right: 40px;	
+	padding-bottom: 40px;
+	text-align: center;
+	color: #42514e;
+}
+
+.agencyPanel {
+	background-color: #dad8c9;
+	font-size: 14pt;
+    padding: 18px 18px 18px 30px;
+    box-shadow: 10px 10px 10px #1D4E4B;
+    color: #42514e;
+}

@@ -1,0 +1,44 @@
+@CHARSET "ISO-8859-1";
+/* styles for the side nav menu
+   Author: Kelsey Alexander
+   Date: September 26, 2016
+*/
+.menu {
+    height: 100%; /* 100% Full-height */
+    width: 250px; 
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: rgba(112,109,100,0.45); /* transparent */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 120px; /* Place content 100px from the top */
+    font-family:'Roboto', sans-serif;
+}
+
+/* The navigation menu links */
+.menu button {
+    padding: 18px 18px 18px 40px;
+    width: 80%;
+    text-decoration: none;
+    font-size: 20px;
+    color: #42514e;
+    display: block;
+    transition: 0.3s;
+    margin: 15px;
+    border: none;
+  	border-radius: 15px;
+  	box-shadow: 0 5px #6e8266;
+  	background-color: #dad8c9;
+}
+
+/* When you mouse over the navigation links, change their color */
+.menu button:hover{
+    color: #3D9C97;
+}
+
+.menu button:active,
+.menu button.active {
+  box-shadow: 0 5px #6e8266;
+  transform: translateY(5px);
+}

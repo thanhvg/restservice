@@ -1,0 +1,11 @@
+@CHARSET "ISO-8859-1";
+/* styles for the travel vacation package info
+   Author: Kelsey Alexander
+   Date: September 26, 2016
+*/
+.package {
+	padding: 40px;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-bottom: 40px;
+}
