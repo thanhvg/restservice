@@ -12,14 +12,25 @@ function register() {
 	$('#MainContent').load('static/regform.html');
 }
 
+function submitRegistrationForm_test(v) {
+	$.post("http://localhost:8080/TravelExpertsWebService/rs/customer/addCustomer",
+	        {
+	          name: "Donald Duck",
+	          city: "Duckburg"
+	        });
+}
+
 function submitRegistrationForm(v) {
 	// alert("First value in array: " + v[0]);
+	// alert(arrayToJson(v));	
 	$.ajax({
 		type: 'POST',
-		contentType: 'application/json',
+		//contentType: 'application/json; charset=utf-8',
+		//contentType: 'application/json; charset=utf-8',
 		url: "http://localhost:8080/TravelExpertsWebService/rs/customer/addCustomer",
-		dataType: "json",
+		dataType: "String",
 		data: arrayToJson(v),
+		//data: "Hi there",
 		success: function(data, textStatus, jqXHR){
 			alert('Wine created successfully');
 			
@@ -35,7 +46,7 @@ function arrayToJson(v) {
 	
 	return JSON.stringify ({
 		
-		"CustomerId": null,
+		"CustomerId": "",
 		"CustFirstName":  v[0],
 		"CustLastName" : v[1],
 		"CustAddress": v[2],
@@ -46,7 +57,7 @@ function arrayToJson(v) {
 		"CustHomePhone": v[11],
 		"CustBusPhone" :v[10],
 		"CustEmail" : v[7],
-		"AgentId": null,
+		"AgentId": "",
 		"CustUsername": v[8],
 		"CustPassword": v[9]
 		

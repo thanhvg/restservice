@@ -149,20 +149,33 @@ public class CustomerService {
 		return obj.toJSONString();	
 	}
 	
+//	
+//	@POST
+//	@Path("/addCustomer")
+//	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+//	//@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+//	public void create(Customer customer) {
+//		// url http://localhost:8080/TravelExpertsWebService/rs/customer/addCustomer
+//		
+//		System.out.println("creating customer");
+//		System.out.println(customer.getCustFirstName());
+//		
+//		//return null;
+//	}
+
 	
 	@POST
 	@Path("/addCustomer")
-	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Customer create(Customer customer) {
-		// url http://localhost:8080/TravelExpertsWebService/rs/customer/addCustomer
-		
-		System.out.println("creating customer");
-		System.out.println(customer.toString());
-		
-		return null;
+	//@Consumes(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.TEXT_PLAIN)
+	//public String addCustomer(@FormParam("request") String request ,  @DefaultValue("1") @FormParam("version") int version) {
+	public String addCustomer(String request) {
+		System.out.println(request);
+
+		String response = null;
+        return response;	
 	}
-	
+
 	@POST
 	@Path("/postCustomer")
     @Produces(MediaType.TEXT_PLAIN)

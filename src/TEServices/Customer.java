@@ -1,5 +1,6 @@
 package TEServices;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -10,20 +11,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 public class Customer {
 	
-	private int CustomerId;
-	private String CustFirstName;
-	private String CustLastName;
-	private String CustAddress;
-	private String CustCity;
-	private String CustProv;
-	private String CustPostal;
-	private String CustCountry;
-	private String CustHomePhone;
-	private String CustBusPhone;
-	private String CustEmail;
-	private int AgentId;
-	private String CustUsername;
-	private String CustPassword;
+	@XmlElement private int CustomerId;
+	@XmlElement private String CustFirstName;
+	@XmlElement private String CustLastName;
+	@XmlElement  private String CustAddress;
+	@XmlElement private String CustCity;
+	@XmlElement private String CustProv;
+	@XmlElement private String CustPostal;
+	@XmlElement private String CustCountry;
+	@XmlElement private String CustHomePhone;
+	@XmlElement private String CustBusPhone;
+	@XmlElement private String CustEmail;
+	@XmlElement private int AgentId;
+	@XmlElement private String CustUsername;
+	@XmlElement private String CustPassword;
 	
 	
 	public int getCustomerId() {
