@@ -9,7 +9,7 @@
 function purchase(custID) {
 	jQuery.ajax({
         type: "GET",
-        url: "http://localhost:8080/TravelExpertsWebService/rs/customer/getPurchaseHist" + "/" + custID,
+        url: rooturl + "TravelExpertsWebService/rs/customer/getPurchaseHist" + "/" + custID,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) {

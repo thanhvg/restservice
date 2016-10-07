@@ -9,7 +9,7 @@
 function agency() {
 	jQuery.ajax({
         type: "GET",
-        url: "http://localhost:8080/TravelExpertsWebService/rs/agency/getAllAgencies",
+        url: rooturl + "TravelExpertsWebService/rs/agency/getAllAgencies",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) {

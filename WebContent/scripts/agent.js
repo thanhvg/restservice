@@ -10,7 +10,7 @@
 function agent() {
 	jQuery.ajax({
         type: "GET",
-        url: "http://localhost:8080/TravelExpertsWebService/rs/agent/getAllAgents",
+        url: rooturl + "TravelExpertsWebService/rs/agent/getAllAgents",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) {

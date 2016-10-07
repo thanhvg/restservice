@@ -17,7 +17,7 @@ function submit() {
 	
 	jQuery.ajax({
         type: "GET",
-        url: "http://localhost:8080/TravelExpertsWebService/rs/customer/getCustomerJSON/" + iusername + "/" + ipassword,
+        url: rooturl + "TravelExpertsWebService/rs/customer/getCustomerJSON/" + iusername + "/" + ipassword,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) {

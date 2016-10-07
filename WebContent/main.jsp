@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
+
     <jsp:include page="header.jsp" />
     <script>
     	// TODO: get session data to set username and password
-		var username; 
+    	var rooturl = window.location.origin?window.location.origin+'/':window.location.protocol+'/'+window.location.host+'/';
+		var username;
 		var password ;
 		var custID ;
     </script>
-    
+
 	<body onload='home()' style="background-image: url('images/home1.jpg')">
 		<div class="menu">
 			<span><button onclick="home();">Home</button></span>

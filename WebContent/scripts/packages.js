@@ -8,7 +8,7 @@
 function packages() {
 	jQuery.ajax({
         type: "GET",
-        url: "http://localhost:8080/TravelExpertsWebService/rs/package/getAllPackages",
+        url: rooturl + "TravelExpertsWebService/rs/package/getAllPackages",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) {

@@ -13,7 +13,7 @@ function register() {
 }
 
 function submitRegistrationForm_test(v) {
-	$.post("http://localhost:8080/TravelExpertsWebService/rs/customer/addCustomer",
+	$.post(rooturl + "TravelExpertsWebService/rs/customer/addCustomer",
 	        {
 	          name: "Donald Duck",
 	          city: "Duckburg"
@@ -27,7 +27,7 @@ function submitRegistrationForm(v) {
 		type: 'POST',
 		//contentType: 'application/json; charset=utf-8',
 		//contentType: 'application/json; charset=utf-8',
-		url: "http://localhost:8080/TravelExpertsWebService/rs/customer/addCustomer",
+		url: rooturl + "TravelExpertsWebService/rs/customer/addCustomer",
 		dataType: "json",
 		data: arrayToJson(v),
 		//data: "Hi there",
