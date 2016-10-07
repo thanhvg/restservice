@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -169,6 +170,8 @@ public class CustomerService {
 //	}
 
 	
+	// Thanh, create user with post
+	
 	@POST
 	@Path("/addCustomer")
 	//@Consumes(MediaType.TEXT_PLAIN)
@@ -190,13 +193,14 @@ public class CustomerService {
 			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM `customers` WHERE `CustUsername`=?");
 			stmt.setString(1, customer.getCustUsername());
 			ResultSet rs = stmt.executeQuery();
-			if (!rs.next()) {
+			if (rs.isBeforeFirst()) { // yes found same username
 				id = -1;
 			}else {
-				stmt = conn.prepareStatement("INSERT INTO `customers`(`CustFirstName`, "
-						+ "`CustLastName`, `CustAddress`, `CustCity`, `CustProv`, "
-						+ "`CustPostal`, `CustCountry`, `CustHomePhone`, `CustBusPhone`, "
-						+ "`CustEmail`, `CustUsername`, `CustPassword`)" + " VALUES (?,?,?,?,?,?,?,?,?,?,?,md5(?)");
+				stmt = conn.prepareStatement("INSERT INTO customers ( CustFirstName, "
+						+ " CustLastName,  CustAddress,  CustCity,  CustProv, "
+						+ " CustPostal,  CustCountry,  CustHomePhone,  CustBusPhone, "
+						+ " CustEmail,  CustUsername,  CustPassword, AgentId )" 
+						+ " VALUES (?,?,?,?,?,?,?,?,?,?,?,md5(?),?)", Statement.RETURN_GENERATED_KEYS);
 				stmt.setString(1, customer.getCustFirstName());
 				stmt.setString(2, customer.getCustLastName());
 				stmt.setString(3, customer.getCustAddress());
@@ -209,6 +213,7 @@ public class CustomerService {
 				stmt.setString(10, customer.getCustEmail());
 				stmt.setString(11, customer.getCustUsername());
 				stmt.setString(12, customer.getCustPassword());
+				stmt.setInt(13, 1);
 				stmt.executeUpdate();
 				rs = stmt.getGeneratedKeys();
 				rs.next();
@@ -218,7 +223,7 @@ public class CustomerService {
 			} catch (SQLException | ClassNotFoundException e) {
 				e.printStackTrace();
 			}
-		String response = "{'id':"+id+"}" ;
+		String response = "{\"id\":"+id+"}" ;
 		
 //		String response = g.toJson(customer);
 //		System.out.println(response);
