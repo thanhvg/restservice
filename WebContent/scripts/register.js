@@ -32,7 +32,24 @@ function submitRegistrationForm(v) {
 		data: arrayToJson(v),
 		//data: "Hi there",
 		success: function(data, textStatus, jqXHR){
-			alert('Ceated successfully' + data.CustFirstName);
+			if (data.id == -1) {
+				alert("Your user name is not available please choose other one");
+				$('#inputUsername').select();
+			} else if (data.id == 0 || data.id == -2){
+				alert("Database error");
+			} else { //
+				username = v[8];
+	            password = v[9];
+	            custID = data.id;
+	            // hide and show buttons
+	            $('#login').hide();
+	            $('#register').hide();
+	            $('#logout').show();
+	            $('#account').show();
+	            
+	            var html = "<div class='welcome'><div class='title'>"+ "Welcome " +  v[0] + " " + v[1] + "</div>";
+	            document.getElementById("MainContent").innerHTML = html;
+			}
 			
 		},
 		error: function(jqXHR, textStatus, errorThrown){

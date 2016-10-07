@@ -180,8 +180,48 @@ public class CustomerService {
 		Customer customer = g.fromJson(request, Customer.class);
 		System.out.println(customer.getCustFirstName());
 	    
-		String response = g.toJson(customer);
-		System.out.println(response);
+		int id = -2;
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/travelexperts","user","password");
+			// check if username ok
+			
+			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM `customers` WHERE `CustUsername`=?");
+			stmt.setString(1, customer.getCustUsername());
+			ResultSet rs = stmt.executeQuery();
+			if (!rs.next()) {
+				id = -1;
+			}else {
+				stmt = conn.prepareStatement("INSERT INTO `customers`(`CustFirstName`, "
+						+ "`CustLastName`, `CustAddress`, `CustCity`, `CustProv`, "
+						+ "`CustPostal`, `CustCountry`, `CustHomePhone`, `CustBusPhone`, "
+						+ "`CustEmail`, `CustUsername`, `CustPassword`)" + " VALUES (?,?,?,?,?,?,?,?,?,?,?,md5(?)");
+				stmt.setString(1, customer.getCustFirstName());
+				stmt.setString(2, customer.getCustLastName());
+				stmt.setString(3, customer.getCustAddress());
+				stmt.setString(4, customer.getCustCity());
+				stmt.setString(5, customer.getCustProv());
+				stmt.setString(6, customer.getCustPostal());
+				stmt.setString(7, customer.getCustCountry());
+				stmt.setString(8, customer.getCustHomePhone());
+				stmt.setString(9, customer.getCustBusPhone());
+				stmt.setString(10, customer.getCustEmail());
+				stmt.setString(11, customer.getCustUsername());
+				stmt.setString(12, customer.getCustPassword());
+				stmt.executeUpdate();
+				rs = stmt.getGeneratedKeys();
+				rs.next();
+				id = rs.getInt(1);
+			}
+			conn.close();
+			} catch (SQLException | ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+		String response = "{'id':"+id+"}" ;
+		
+//		String response = g.toJson(customer);
+//		System.out.println(response);
         return response;	
 	}
 
