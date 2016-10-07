@@ -28,11 +28,11 @@ function submitRegistrationForm(v) {
 		//contentType: 'application/json; charset=utf-8',
 		//contentType: 'application/json; charset=utf-8',
 		url: "http://localhost:8080/TravelExpertsWebService/rs/customer/addCustomer",
-		dataType: "String",
+		dataType: "json",
 		data: arrayToJson(v),
 		//data: "Hi there",
 		success: function(data, textStatus, jqXHR){
-			alert('Wine created successfully');
+			alert('Ceated successfully' + data.CustFirstName);
 			
 		},
 		error: function(jqXHR, textStatus, errorThrown){
@@ -46,7 +46,7 @@ function arrayToJson(v) {
 	
 	return JSON.stringify ({
 		
-		"CustomerId": "",
+		"CustomerId": null,
 		"CustFirstName":  v[0],
 		"CustLastName" : v[1],
 		"CustAddress": v[2],
@@ -57,7 +57,7 @@ function arrayToJson(v) {
 		"CustHomePhone": v[11],
 		"CustBusPhone" :v[10],
 		"CustEmail" : v[7],
-		"AgentId": "",
+		"AgentId": null,
 		"CustUsername": v[8],
 		"CustPassword": v[9]
 		

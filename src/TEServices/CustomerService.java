@@ -21,7 +21,12 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.core.MediaType;
 import org.apache.log4j.Logger;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import com.google.gson.Gson;
 
 /*
  * Web service for accessing customer data
@@ -167,12 +172,16 @@ public class CustomerService {
 	@POST
 	@Path("/addCustomer")
 	//@Consumes(MediaType.TEXT_PLAIN)
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
 	//public String addCustomer(@FormParam("request") String request ,  @DefaultValue("1") @FormParam("version") int version) {
 	public String addCustomer(String request) {
-		System.out.println(request);
-
-		String response = null;
+		// System.out.println(request);
+		Gson g = new Gson();
+		Customer customer = g.fromJson(request, Customer.class);
+		System.out.println(customer.getCustFirstName());
+	    
+		String response = g.toJson(customer);
+		System.out.println(response);
         return response;	
 	}
 
